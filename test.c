@@ -3,11 +3,17 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <stdbool.h>
+#include <ctype.h>
+void inputChar(void);
+
 int main(int argc, char *argv[])
 {
+    inputChar();
+    return 0;
+
     int ch, input;
     while(!scanf("%d", &input)) {
-        while((ch=getchar()) != EOF)
+        while((ch=getchar()) != '\n')
             putchar(ch);
         printf(" is not an integer.\nPlease enter an ");
         printf("integer value,such as 25: ");
@@ -70,5 +76,28 @@ int main(int argc, char *argv[])
 
     for (int i=0; i<SIZE; i++) {
         printf("%5d", score[i]);
+    }
+}
+
+void echo(int a, int b)
+{
+    printf("hello world!");
+}
+
+void inputChar(void)
+{
+    char ch;
+    short position = -1;
+    while((ch=getchar()) != '\n') {
+        if (isupper(ch)) {
+            position = 1 + ch - 'A';
+        } else if(islower(ch)) {
+            position = 1 + ch - 'a';
+        } else {
+            position = -1;
+        }
+        printf("%d", position);
+        //putchar('0'+position);
+        putchar(' ');
     }
 }
