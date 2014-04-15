@@ -5,6 +5,16 @@
 #define PI 3.1415f
 int main(void)
 {
+    //int a[2] = {1,2};
+    //char a = '1';
+    int a = 1;
+    FILE *fp;
+    fp = fopen("bak2.bak", "a");
+    fwrite(&a, sizeof(a), 2, fp);
+    fclose(fp);
+
+    printf("%ld",sizeof(a));
+    return 0;
     int salary = 10000;
     unsigned short month = 12U;
     float total = 200000.0f; 
