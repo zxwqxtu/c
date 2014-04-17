@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "file/fileLib.c"
-
-bool copyFile(char *, char *);
 
 int main(int argc, char *argv[])
 {
+    appendFile("fileFirst.c", "/www/web/fileFirst.bak");
+    return 0;
+
     copyFile("fileFirst.c", "/www/web/fileFirst.bak");
     return 0;
 
